@@ -1,0 +1,8 @@
+<h1>Post History</h1>
+
+<% @post.each do |post|%>
+    <%= post.content%>
+<%end%>
+
+<a href="/post/#{post.id}"><button>See Post Details</button></a>
+<a href="/logout"><button>Log Out</button></a>
