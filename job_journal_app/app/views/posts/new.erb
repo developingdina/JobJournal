@@ -1,7 +1,7 @@
 <h1>Create a new Post:</h1>
-<form method="POST" action="/create">
-    Company Name:<input type="text" name="companyname">
-    Position Title:<input type="text" name="positiontitle">
+<form method="POST" action="/posts">
+    Company Name:<input type="text" name="companyname" required>
+    Position Title:<input type="text" name="positiontitle" required>
     Date Applied:<input type="text" name="dateapplied">
     <p>Description:<input type="text" name="description"></p>
     <input type="submit" name="submit">

@@ -1,9 +1,10 @@
 <h1>Post History</h1>
 
-<% @post.each do |post|%>
-    <%= post.content%>
-<%end%>
+<% @posts.each do |post|%>
+    <h3><%= post.company_name%></h3>
+        <p><%= post.position_title%><br>
+        <a href="/posts/<%=post.id%>"><button>See Post Details</button></a>
+    <%end%>
 
-<a href="/posts/#{post.id}"><button>See Post Details</button></a>
 <a href="/posts/new"><button>Create a Post</button></a>
 <a href="/logout"><button>Log Out</button></a>

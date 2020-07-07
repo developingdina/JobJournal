@@ -17,8 +17,7 @@ class UserController < ApplicationController
             else
                 redirect "/signup"
             end
-
-            redirect "/posts"
+        redirect "/posts"
     end
 
     get '/login' do 
