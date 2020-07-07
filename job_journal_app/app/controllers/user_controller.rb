@@ -30,13 +30,10 @@ class UserController < ApplicationController
 #########################
     post '/login' do 
         user = User.find_by(username: params[:username])
-        
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-        elsif !(user && user.authenticate(params[:password]))
-            redirect "/signup"
         else
-            redirect "/login"
+            redirect "/signup"
         end
         redirect "/posts"
     end
