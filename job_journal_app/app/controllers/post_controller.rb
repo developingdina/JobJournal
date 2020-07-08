@@ -48,7 +48,13 @@ class PostController < ApplicationController
     end
 
     patch '/posts/:id' do 
-        binding.pry
+        post = Post.find_by_id(params[:id])
+        post.company_name = params[:companyname]
+        post.position_title = params[:positiontitle]
+        post.description = params[:description]
+        post.applied = params[:dateapplied]
+        post.save
+        redirect "/posts/#{post.id}"
     end
 
     delete '/posts/:id' do
