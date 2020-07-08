@@ -42,7 +42,10 @@ class PostController < ApplicationController
     end
 
     get '/posts/:id/edit' do
-        "You Made It to the Edit Page"
+        "Congrats you made it to the edit page"
+        @post = Post.find_by_id(params[:id])
+        binding.pry
+        erb :'posts/edit_post'
     end
 
     patch '/posts/:id' do 
