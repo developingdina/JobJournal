@@ -1,9 +1,9 @@
 <form method="POST" action="/posts/<%= @post.id %>" >
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <input type="text" id="content" name="content" value="<%= @post.company_name %>">
-    <input type="text" id="content" name="content" value="<%= @post.position_title %>">
-    <input type="text" id="content" name="content" value="<%= @post.applied %>">
-    <input type="text" id="content" name="content" value="<%= @post.description %>">
+    <input type="text" id="content" name="companyname" value="<%= @post.company_name %>">
+    <input type="text" id="content" name="positiontitle" value="<%= @post.position_title %>">
+    <input type="text" id="content" name="dateapplied" value="<%= @post.applied %>">
+    <input type="text" id="content" name="description" value="<%= @post.description %>">
 
     <input type="submit" value="submit">
 </form>
