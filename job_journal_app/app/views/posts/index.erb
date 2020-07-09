@@ -3,7 +3,7 @@
 <% @posts.each do |post|%>
     <%if post.user_id == session[:user_id]%>
         <h3><%= post.company_name%></h3>
-            <p><%= post.position_title%><br>
+            <p><%= post.position_title%><br><br>
             <a href="/posts/<%=post.id%>"><button>See Post Details</button></a>
     <%end%>
 <%end%>

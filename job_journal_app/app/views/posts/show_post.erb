@@ -5,8 +5,8 @@
     <%=@post.description%>
 </p>
 
-<a href="/posts/<%= @post.id %>/edit"><button>Edit Post</button></a><br>
-<a href="/posts"><button>All Posts</button></a>
+<a href="/posts/<%= @post.id %>/edit"><button>Edit Post</button></a>
+<a href="/posts"><button>All Posts</button></a><br><br>
 
 <form method="POST" action="/posts/<%= @post.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">

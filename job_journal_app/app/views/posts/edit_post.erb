@@ -1,8 +1,13 @@
+<h1>Editing Post:</h1>
 <form method="POST" action="/posts/<%= @post.id %>" >
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <input type="text" name="companyname" value="<%= @post.company_name %>">
-    <input type="text" name="positiontitle" value="<%= @post.position_title %>">
-    <input type="text" name="dateapplied" value="<%= @post.applied %>">
-    <input type="text" name="description" value="<%= @post.description %>">
-    <input type="submit" value="submit">
+    <label for="cname">Company</label><br>
+    <input type="text" id="cname" name="companyname" value="<%= @post.company_name %>"><br><br>
+    <label for="ptitle">Position</label><br>
+    <input type="text" id="ptitle" name="positiontitle" value="<%= @post.position_title %>"><br><br>
+    <label for="dapplied">Date Applied</label><br>
+    <input type="text" id="dapplied" name="dateapplied" value="<%= @post.applied %>"><br><br>
+    <label for="description">Job Description</label><br>
+    <textarea id="description" name="description" value="<%= @post.description %>"></textarea><br><br>
+    <input type="submit" value="Submit">
 </form>
