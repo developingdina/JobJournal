@@ -1,4 +1,4 @@
-<h1>Welcome <%=@user%>, here is your Post History:</h1>
+<h1>Post History:</h1>
 
 <% @posts.each do |post|%>
     <%if post.user_id == session[:user_id]%>
