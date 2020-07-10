@@ -1,7 +1,7 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 if ENV['SINATRA_ENV'] == "development"
-  require_relative "../secrets"
+  require_relative "../secrets.rb"
 end
 
 require 'bundler/setup'

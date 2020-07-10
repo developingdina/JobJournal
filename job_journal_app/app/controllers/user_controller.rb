@@ -10,14 +10,19 @@ class UserController < ApplicationController
       end
     
     post '/signup' do 
-        user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        if User.find_by(username: params[:username])
+            "Sorry that username already exists! Try again"
+            #redirect "/signup"
+        else
+                user = User.new(username: params[:username], email: params[:email], password: params[:password])
     
-            if user.save
+            if user.save 
                 session[:user_id] = user.id 
             else
                 redirect "/signup"
             end
         redirect "/posts"
+        end
     end
 
     get '/login' do 
