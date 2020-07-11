@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :company_name
       t.string :position_title
-      t.datetime :applied
+      t.date :applied
       t.string :description
       t.integer :user_id
     end

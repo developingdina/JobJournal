@@ -39,8 +39,10 @@ class UserController < ApplicationController
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
+            flash[:message] = "Nice to see you again #{user.username}! You were successfully logged in."
             redirect "/posts"
         elsif !(user && user.authenticate(params[:password]))
+            flash[:errors] = "Maybe you mistyped? Try again:"
             redirect "/login"
         end
     end
