@@ -1,10 +1,10 @@
 
-#Job Journal
+# Job Journal
 
 Job journal is a simple Sinatra application that allows you to keep track of the jobs you find interesting. You can record the name of the company, position title, job description or notes you have about the job, and the date you applied. You can leave that last one blank if you have not applied yet and want to just record the job!
 
 
-##Installation
+## Installation
 To install you will have to clone this repo and run ```bundle install``` in the terminal. Run ```shotgun``` to start the local session. You should see something like:
 
 ```ruby
@@ -18,7 +18,7 @@ You can copy and paste the numbers in ```listening``` like this ```127.0.0.1:939
 
 
 
-##License
+## License
 MIT License
 
 Copyright (c) 2020 Dina Kendle
