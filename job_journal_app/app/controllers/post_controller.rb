@@ -20,12 +20,12 @@ class PostController < ApplicationController
             post = Post.new(company_name: params[:companyname], position_title: params[:positiontitle], applied: params[:dateapplied], description: params[:description])
             post.user_id = session[:user_id]
             post.save
+            flash[:message] = "Post successfully created!"
             redirect "/posts/#{post.id}"
         else
             redirect "/login"
         end
-
-        redirect "/posts"
+       
     end
 
 
@@ -55,12 +55,14 @@ class PostController < ApplicationController
         post.description = params[:description]
         post.applied = params[:dateapplied]
         post.save
+        flash[:message] = "Post successfully updated!"
         redirect "/posts/#{post.id}"
     end
 
     delete '/posts/:id' do
         @post = Post.find_by_id(params[:id])
         @post.delete 
+        flash[:message] = "Post successfully deleted!"
         redirect "/posts"
     end
 end

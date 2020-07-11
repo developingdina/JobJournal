@@ -51,6 +51,7 @@ class UserController < ApplicationController
         if logged_in?
             session.clear
         end
+        flash[:message] = "See you next time!"
             redirect "/login"
     end
 
