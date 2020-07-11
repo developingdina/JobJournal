@@ -16,14 +16,15 @@ Listening on 127.0.0.1:9393, CTRL+C to stop
 
 You can copy and paste the numbers in ```listening``` like this ```127.0.0.1:9393``` or this```localhost:9393``` in the url bar of a new tab. All of your changes in your program will reflect in the session.
 
+### Prereqs
+You should have ruby installed on your machine and some way to run the code like a local environment or browser IDE.
 
 ## Author
 (c) 2020 Dina Kendle 
 
 ## Contributing
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md).
-
-
+Contributions are always welcome! This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md).
+ 
 
 ## License
 MIT License
