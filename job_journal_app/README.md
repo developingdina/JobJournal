@@ -21,8 +21,8 @@ You can copy and paste the numbers in ```listening``` like this ```127.0.0.1:939
 (c) 2020 Dina Kendle 
 
 ## Contributing
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md.
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md).
+
 
 
 ## License
