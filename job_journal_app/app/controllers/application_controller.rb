@@ -14,6 +14,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     erb :homepage
+    binding.pry
   end
 
   
