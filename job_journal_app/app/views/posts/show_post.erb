@@ -1,9 +1,11 @@
 <h1><%= @post.company_name%></h1>
-
-<p><%=@post.position_title%>
 <hr>
-    <%=@post.description%>
-</p>
+<p><b>Position:</b><br>
+    <%=@post.position_title%></p>
+<p><b>Date Applied:</b> 
+    <br><%=@post.applied%></p>
+<p><b>Description:</b>
+    <br><%=@post.description%></p>
 
 <a href="/posts/<%= @post.id %>/edit"><button>Edit Post</button></a>
 <a href="/posts"><button>All Posts</button></a><br><br>
