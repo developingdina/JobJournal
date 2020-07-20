@@ -27,6 +27,12 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!current_user?
     end
+    
+##created new helper
+##Finds post by post by id in current users collection
+    def post_by_user
+      @post = current_user?.posts.find_by_id(params[:id])
+    end
 
   end
 

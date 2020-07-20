@@ -4,7 +4,7 @@ class PostController < ApplicationController
     get '/posts' do
         if logged_in? 
             @user = current_user?.username
-            @posts = Post.all
+            @posts = current_user?.posts
             erb :'posts/index'
         else
             redirect "/login"
@@ -17,8 +17,8 @@ class PostController < ApplicationController
 
     post '/posts' do 
         if logged_in?
-            post = Post.new(company_name: params[:companyname], position_title: params[:positiontitle], applied: params[:dateapplied], description: params[:description])
-            post.user_id = session[:user_id]
+
+            post = current_user?.posts.new(params)
             post.save
             flash[:message] = "Post successfully created!"
             redirect "/posts/#{post.id}"
@@ -28,27 +28,23 @@ class PostController < ApplicationController
        
     end
 
-
+##added new helper method and got rid of 
     get '/posts/:id' do
-        if logged_in?
-            @post = Post.find_by_id(params[:id])
-            if @post == nil
-                redirect "/posts"
-            else
-                erb :'posts/show_post'
-            end
+        if post_by_user
+            erb :'posts/show_post'
         else
-            redirect "/login"
+            flash[:errors] = "Sorry that post doesn't exist."
+            redirect "/posts"
         end
     end
 
     get '/posts/:id/edit' do
-        @post = Post.find_by_id(params[:id])
+        post_by_user
         erb :'posts/edit_post'
     end
 
     patch '/posts/:id' do 
-        post = Post.find_by_id(params[:id])
+        post = current_user?.posts.find_by_id(params[:id])
         post.company_name = params[:companyname]
         post.position_title = params[:positiontitle]
         post.description = params[:description]
@@ -59,7 +55,7 @@ class PostController < ApplicationController
     end
 
     delete '/posts/:id' do
-        @post = Post.find_by_id(params[:id])
+        @post = current_user?.posts.find_by_id(params[:id])
         @post.delete 
         flash[:message] = "Post successfully deleted!"
         redirect "/posts"

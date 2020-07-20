@@ -1,11 +1,9 @@
 <h1>Post History:</h1>
 
 <% @posts.each do |post|%>
-    <%if post.user_id == session[:user_id]%>
         <h3><%= post.company_name%></h3>
             <p><%= post.position_title%><br><br>
             <a href="/posts/<%=post.id%>"><button>See Post Details</button></a>
-    <%end%>
 <%end%>
 <hr>
 <a href="/posts/new"><button>Create a Post</button></a>

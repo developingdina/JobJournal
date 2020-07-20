@@ -1,0 +1,1 @@
+ruby -e "require 'sysrandom/securerandom'; puts SecureRandom.hex(64)"

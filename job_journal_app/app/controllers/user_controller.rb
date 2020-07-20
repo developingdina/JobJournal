@@ -41,7 +41,8 @@ class UserController < ApplicationController
             session[:user_id] = user.id
             flash[:message] = "Nice to see you again #{user.username}! You were successfully logged in."
             redirect "/posts"
-        elsif !(user && user.authenticate(params[:password]))
+        #Took out elsif statement 
+        else
             flash[:errors] = "Maybe you mistyped? Try again:"
             redirect "/login"
         end
