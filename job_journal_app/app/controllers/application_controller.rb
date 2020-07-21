@@ -6,9 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-  
     register Sinatra::Flash 
-  
     set :session_secret, ENV['SESSION_PASSWORD']
   end
 
@@ -28,10 +26,15 @@ class ApplicationController < Sinatra::Base
       !!current_user?
     end
     
-##created new helper
-##Finds post by post by id in current users collection
+    ##created new helper that finds post by post by id in current users collection
     def post_by_user
       @post = current_user?.posts.find_by_id(params[:id])
+      if @post 
+        @post 
+      else
+        flash[:errors] = "That post does not exist!"
+        redirect "/posts"
+      end
     end
 
   end

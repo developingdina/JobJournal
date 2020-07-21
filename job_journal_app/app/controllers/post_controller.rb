@@ -3,7 +3,7 @@ class PostController < ApplicationController
 
     get '/posts' do
         if logged_in? 
-            @user = current_user?.username
+           ##didn't need @user for anything
             @posts = current_user?.posts
             erb :'posts/index'
         else

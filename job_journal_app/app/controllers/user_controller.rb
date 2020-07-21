@@ -12,12 +12,15 @@ class UserController < ApplicationController
     post '/signup' do 
         ##used validates_uniqueness_of to condense this logic
         user = User.find_by(username: params[:username])
-        if user.save
-            session[:user_id] = user.id
-            redirect "/posts"
-        else
+        if user
             flash[:errors] = "That username already exists, try again:"
             redirect "/signup"
+        else
+            user = User.new(params)
+            user.save
+            session[:user_id] = user.id 
+            flash[:message] = "Welcome #{user.username}! You were successfully logged in."	
+            redirect "/posts"
         end
     end
 
@@ -47,7 +50,7 @@ class UserController < ApplicationController
             session.clear
         end
         flash[:message] = "See you next time!"
-            redirect "/login"
+        redirect "/login"
     end
 
 end
