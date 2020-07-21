@@ -41,7 +41,7 @@ class PostController < ApplicationController
         post_by_user
         erb :'posts/edit_post'
     end
-
+##A way to nest the params hash so that attributes do not have to be spelled out
     patch '/posts/:id' do 
         post_by_user
         @post.update_attributes(company_name: params[:company_name], position_title: params[:position_title], applied: params[:applied], description: params[:description])

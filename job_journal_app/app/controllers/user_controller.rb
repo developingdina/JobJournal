@@ -10,20 +10,14 @@ class UserController < ApplicationController
       end
     
     post '/signup' do 
-        if User.find_by(username: params[:username])
-            flash[:errors] = "Sorry that username already exists! Try again:"
-            redirect "/signup"
+        ##used validates_uniqueness_of to condense this logic
+        user = User.find_by(username: params[:username])
+        if user.save
+            session[:user_id] = user.id
+            redirect "/posts"
         else
-            user = User.new(username: params[:username], email: params[:email], password: params[:password])
-    
-            if user.save 
-                session[:user_id] = user.id 
-            else
-                flash[:errors] = "Sorry about that. It's not you, its' us. Try again"
-                redirect "/signup"
-            end
-        flash[:message] = "Welcome #{user.username}! You were successfully logged in."
-        redirect "/posts"
+            flash[:errors] = "That username already exists, try again:"
+            redirect "/signup"
         end
     end
 
