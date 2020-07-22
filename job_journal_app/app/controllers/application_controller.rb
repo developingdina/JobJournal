@@ -41,6 +41,26 @@ class ApplicationController < Sinatra::Base
       @user = User.find_by(username: params[:username])
     end
 
+    def set_post_error
+      flash[:errors] = "Sorry that doesn't exist."
+    end
+
+    def set_login_error
+      flash[:errors] = "You need to login to do that!"
+    end
+
+    def redirect_if_not_found
+      set_post_error
+      redirect '/posts'
+    end
+
+    def redirect_if_not_logged_in
+      if !logged_in
+        set_login_error
+        redirect "/login"
+      end
+    end
+
   end
 
 end
