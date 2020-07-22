@@ -33,12 +33,12 @@ class PostController < ApplicationController
        
     end
 
-##added new helper method and got rid of nested if statement
+##added new helper methods and got rid of nested if statement
     get '/posts/:id' do
-        if post_by_user
+        if logged_in? && post_by_user 
             erb :'posts/show_post'
         else
-            flash[:errors] = "Sorry that post doesn't exist."
+            flash[:errors] = "Sorry that doesn't exist."
             redirect "/posts"
         end
     end
