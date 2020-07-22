@@ -3,7 +3,7 @@ class PostController < ApplicationController
 
     get '/posts' do
         if logged_in? 
-           ##didn't need @user for anything
+           ##didn't need @user
             @posts = current_user?.posts
             erb :'posts/index'
         else
@@ -12,7 +12,13 @@ class PostController < ApplicationController
     end
 
     get '/posts/new' do 
-        erb :'posts/new'
+        ##adds protection to new post form
+        if logged_in?
+            erb :'posts/new'
+        else 
+            flash[:errors] = "You need to login to do that!"
+                redirect "/login"
+            end
     end
 
     post '/posts' do 

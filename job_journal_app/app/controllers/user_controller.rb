@@ -11,15 +11,15 @@ class UserController < ApplicationController
     
     post '/signup' do 
         ##used validates_uniqueness_of to condense this logic
-        user = User.find_by(username: params[:username])
-        if user
+        find_user
+        if @user
             flash[:errors] = "That username already exists, try again:"
             redirect "/signup"
         else
-            user = User.new(params)
-            user.save
-            session[:user_id] = user.id 
-            flash[:message] = "Welcome #{user.username}! You were successfully logged in."	
+            @user = User.new(params)
+            @user.save
+            session[:user_id] = @user.id 
+            flash[:message] = "Welcome #{@user.username}! You were successfully logged in."	
             redirect "/posts"
         end
     end
@@ -33,10 +33,9 @@ class UserController < ApplicationController
     end
 
     post '/login' do 
-        user = User.find_by(username: params[:username])
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id
-            flash[:message] = "Nice to see you again #{user.username}! You were successfully logged in."
+        find_user
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
             redirect "/posts"
         #Took out elsif statement 
         else

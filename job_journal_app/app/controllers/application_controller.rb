@@ -37,6 +37,10 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def find_user
+      @user = User.find_by(username: params[:username])
+    end
+
   end
 
 end
